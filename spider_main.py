@@ -191,36 +191,36 @@ class Yanzhao(object):
         类内逻辑主线函数。
         :return: None
         """
-        # page = self.get_page()
-        # num = 0
-        # for i in range(page):
-        #     schools_obj = self.get_parse_each_page(i)  # 得到每页的学校信息
-        #     print(f' 第{i + 1}页： {len(schools_obj)}所高校')
-        #     # 遍历专业对应的学校
-        #     for school_obj in schools_obj:
-        #         # 此循环内是单个学校
-        #         school_line_list = list()
-        #         school_line_str = str()
-        #         school_line_list, school_url, school_line_str = self.parse_school_info(school_obj, school_line_list,
-        #                                                                                school_line_str)
-        #         print(" " + school_line_list[0], end="")
-        #         time.sleep(0.1)
-        #         # 请求学校开设专业详情页
-        #         exam_info_list = self.get_school_dir(school_url)
-        #         # 遍历每一个研究方向
-        #         for each_exam in exam_info_list:
-        #             # 此循环内是每一个研究方向
-        #             exam_info_url, school_line_list, school_line_str = self.parse_each_dir(each_exam, school_line_list,
-        #                                                                                    school_line_str)
-        #             time.sleep(0.1)
-        #             # 请求每个研究方向的主页，提取考试科目
-        #             school_line_list, school_line_str = self.get_exam(exam_info_url, school_line_list, school_line_str)
-        #         school_line_str += '\n'
-        #         print("   done.")
-        #         # print(school_line_str)
-        #
-        #         self.save_school_line(school_line_list, num, school_line_str)
-        #         num += 1
+        page = self.get_page()
+        num = 0
+        for i in range(page):
+            schools_obj = self.get_parse_each_page(i)  # 得到每页的学校信息
+            print(f' 第{i + 1}页： {len(schools_obj)}所高校')
+            # 遍历专业对应的学校
+            for school_obj in schools_obj:
+                # 此循环内是单个学校
+                school_line_list = list()
+                school_line_str = str()
+                school_line_list, school_url, school_line_str = self.parse_school_info(school_obj, school_line_list,
+                                                                                       school_line_str)
+                print(" " + school_line_list[0], end="")
+                time.sleep(0.1)
+                # 请求学校开设专业详情页
+                exam_info_list = self.get_school_dir(school_url)
+                # 遍历每一个研究方向
+                for each_exam in exam_info_list:
+                    # 此循环内是每一个研究方向
+                    exam_info_url, school_line_list, school_line_str = self.parse_each_dir(each_exam, school_line_list,
+                                                                                           school_line_str)
+                    time.sleep(0.1)
+                    # 请求每个研究方向的主页，提取考试科目
+                    school_line_list, school_line_str = self.get_exam(exam_info_url, school_line_list, school_line_str)
+                school_line_str += '\n'
+                print("   done.")
+                # print(school_line_str)
+        
+                self.save_school_line(school_line_list, num, school_line_str)
+                num += 1
 
 
 class YanZhaoSubNum(object):
@@ -278,5 +278,3 @@ if __name__ == '__main__':
         print(e)
     input('\n\n 文件以保存在当前文件夹中!!!\n\n 按任意键退出......')
 
-# D:\GuoHanting\Python_proj\Web_Crawler\研究生招考信息获取.py
-# pyinstaller -F D:\GuoHanting\Python_proj\Web_Crawler\研究生招考信息获取.py -i "E:\FFOutput\exam.ico"

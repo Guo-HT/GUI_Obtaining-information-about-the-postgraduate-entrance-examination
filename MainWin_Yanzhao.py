@@ -136,5 +136,3 @@ if __name__ == '__main__':
     main_win.show()
 
     sys.exit(app.exec_())
-
-# pyinstaller -F D:\GuoHanting\Python_proj\Web_Crawler\PyQt_Spider\CallWin_Yanzhao.py -i "E:\FFOutput\exam.ico" -w

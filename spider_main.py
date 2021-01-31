@@ -4,6 +4,7 @@ import time
 import re
 import xlwt
 import json
+import codecs
 
 
 class Yanzhao(object):
@@ -183,7 +184,7 @@ class Yanzhao(object):
             self.workbook.save(self.file_name + '.xls')
         elif self.file_type == '2':
             # 写tsv文件
-            with open(self.file_name + '.tsv', 'a', encoding='utf-8') as f:
+            with codecs.open(self.file_name + '.tsv', 'a', encoding='utf-8') as f:
                 f.write(school_line_str)
 
     def run(self):
@@ -277,4 +278,3 @@ if __name__ == '__main__':
         print('出现错误：')
         print(e)
     input('\n\n 文件以保存在当前文件夹中!!!\n\n 按任意键退出......')
-

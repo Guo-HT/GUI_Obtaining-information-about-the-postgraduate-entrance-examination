@@ -12,7 +12,6 @@ from os import *
 dm_num = ""
 file_name = ""
 file_type = ""
-str_update = ""
 
 
 def suppress_qt_warnings():
@@ -23,17 +22,17 @@ def suppress_qt_warnings():
 
 
 class WorkThread(QThread):
-    update_ui = pyqtSignal()
+    update_ui = pyqtSignal(str)
     end = pyqtSignal()
     btn_update = pyqtSignal()
     clear_textBrowser = pyqtSignal()
 
     # @retry(stop_max_attempt_number=3)  # 如果报错，重试3次
     def run(self):
-        global str_update, dm_num, file_name, file_type
+        global dm_num, file_name, file_type
         self.clear_textBrowser.emit()
         str_update = "开始获取数据......\n"    # 更新字符串
-        self.update_ui.emit()  # 触发update_ui事件
+        self.update_ui.emit(str_update)  # 触发update_ui事件
         yz = spider_main.Yanzhao(dm_num, file_name, file_type)
         page = yz.get_page()
         num = 0
@@ -65,11 +64,11 @@ class WorkThread(QThread):
                 num += 1
 
                 str_update = f"{num}.{school_line_list[0]}   done."  # 更新字符串
-                self.update_ui.emit()  # 触发update_ui事件
+                self.update_ui.emit(str_update)  # 触发update_ui事件
             time.sleep(0.1)
 
         str_update = "\n\n完成！！！"  # 更新字符串
-        self.update_ui.emit()  # 触发update_ui事件
+        self.update_ui.emit(str_update)  # 触发update_ui事件
         self.end.emit()  # 触发线程结束事件
         self.btn_update.emit()  # 触发释放按钮事件
 
@@ -98,8 +97,7 @@ class MainWindow(QMainWindow):
         time.sleep(1)
         self.ui.pushButton.setEnabled(True)
 
-    def update_ui(self):
-        global str_update
+    def update_ui(self, str_update):
         self.ui.textBrowser.append(str_update)
 
     def end(self):

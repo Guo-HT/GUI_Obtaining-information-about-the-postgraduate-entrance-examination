@@ -35,6 +35,7 @@ class WorkThread(QThread):
         self.update_ui.emit(str_update)  # 触发update_ui事件
         yz = spider_main.Yanzhao(dm_num, file_name, file_type)
         page = yz.get_page()
+        yz.write_table_head()
         num = 0
         for i in range(page):
             schools_obj = yz.get_parse_each_page(i)  # 得到每页的学校信息

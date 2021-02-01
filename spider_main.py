@@ -179,13 +179,37 @@ class Yanzhao(object):
         """
         if self.file_type == '1':
             for i in range(len(school_line)):
-                # print(row_num, i, school_line[i])
-                self.worksheet.write(row_num, i, school_line[i])
+                # print(row_num+1, i, school_line[i])
+                self.worksheet.write(row_num+1, i, school_line[i])
             self.workbook.save(self.file_name + '.xls')
         elif self.file_type == '2':
             # 写tsv文件
             with codecs.open(self.file_name + '.tsv', 'a', encoding='utf-8') as f:
                 f.write(school_line_str)
+
+    def write_table_head(self):
+        if self.file_type == '1':
+            head_list = ['学校', '链接', '地区', '-', '开设学院', '研究方向', '链接', '考试范围（业务课）', '-']
+            style = xlwt.XFStyle()  # 初始化样式
+            font = xlwt.Font()  # 为样式创建字体
+            font.name = 'Times New Roman'
+            font.bold = True  # 黑体
+            font.underline = True  # 下划线
+            font.italic = True  # 斜体字
+            style.font = font  # 设定样式
+            pattern = xlwt.Pattern()  # Create the Pattern
+            pattern.pattern = xlwt.Pattern.SOLID_PATTERN  # May be: NO_PATTERN, SOLID_PATTERN, or 0x00 through 0x12
+            pattern.pattern_fore_colour = 5  # yellow
+            style.pattern = pattern  # Add Pattern to Style
+            for i in range(len(head_list)):
+                # print(row_num, i, school_line[i])
+                self.worksheet.write(0, i, head_list[i], style)
+            self.workbook.save(self.file_name + '.xls')
+        elif self.file_type == '2':
+            # 写tsv文件
+            with codecs.open(self.file_name + '.tsv', 'a', encoding='utf-8') as f:
+                file_head = '学校\t链接\t地区\t-\t开设学院\t研究方向\t链接\t考试范围（业务课）\t-\t\n'
+                f.write(file_head)
 
     def run(self):
         """
@@ -194,6 +218,7 @@ class Yanzhao(object):
         """
         page = self.get_page()
         num = 0
+        self.write_table_head()
         for i in range(page):
             schools_obj = self.get_parse_each_page(i)  # 得到每页的学校信息
             print(f' 第{i + 1}页： {len(schools_obj)}所高校')

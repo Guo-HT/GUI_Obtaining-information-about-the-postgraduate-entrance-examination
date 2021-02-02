@@ -7,7 +7,8 @@
 
 
 #### 软件架构
-通过python语言，主要通过requests模块及lxml模块进行数据获取及定位，xlwt模块进行.xls文件的写操作。
+- 通过python语言，主要通过requests模块获取数据，用json、lxml模块进行数据解析及定位，xlwt模块对.xls文件的写操作。
+- 通过Qt框架完成界面部分
 
 #### 安装说明
 

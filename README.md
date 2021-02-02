@@ -35,3 +35,5 @@
 3.  三项输入均为必填。
 
 ### 制作不易，欢迎扫码支持
+![QRCode1](https://images.gitee.com/uploads/images/2021/0202/222055_b3da7d2b_8545662.png "alipay-qrcode.png")
+![QRCode2](https://images.gitee.com/uploads/images/2021/0202/222150_0ef18ad8_8545662.png "wechatpay-qrcode.png")

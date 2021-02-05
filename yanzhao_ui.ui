@@ -93,21 +93,6 @@
          </item>
          <item row="0" column="1">
           <widget class="QComboBox" name="comboBox">
-           <item>
-            <property name="text">
-             <string>----选择对应专业----</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>哈哈哈哈哈哈哈</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>噢噢噢噢哦哦哦</string>
-            </property>
-           </item>
           </widget>
          </item>
          <item row="1" column="1">
@@ -231,7 +216,7 @@ font: 9pt &quot;宋体&quot;;</string>
      <item>
       <widget class="QLabel" name="label_7">
        <property name="text">
-        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;file:///D:\Users\16227\Documents\Tencent Files\1622761893\Image\C2C\F267F6438EE115062D031AA4C917A844.jpg&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;[image_path]&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
       </widget>
      </item>
@@ -246,7 +231,7 @@ font: 9pt &quot;宋体&quot;;</string>
      <item>
       <widget class="QLabel" name="label_8">
        <property name="text">
-        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;file:///D:\Users\16227\Documents\Tencent Files\1622761893\Image\C2C\50E59BDCD60D9F97797EF39F2F7AC028.jpg&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;[image_path]&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
       </widget>
      </item>

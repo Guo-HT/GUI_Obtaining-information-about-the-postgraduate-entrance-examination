@@ -114,6 +114,9 @@ class MainWindow(QMainWindow):
         # print(sub)
         # print(file_name)
         # print(radiobutton_xls, radiobutton_tsv)
+        if (file_name == '') or not (radiobutton_xls or radiobutton_tsv):
+            QMessageBox.information(self, '提示', '请完整填写信息！', QMessageBox.Ok)
+            return
         # ({sub["dm"]}) {sub["mc"]}
         ret = re.match(r'\((.*)\) ', sub)
         dm_num = ret.group(1)
